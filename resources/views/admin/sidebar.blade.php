@@ -1,54 +1,41 @@
-    <div class="main-sidebar sidebar-style-2 bg-dark">
+    <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-          <li class="menu-header">PENGADUAN MASYARAKAT</li>
-            <a href="{{ url('home') }}"></a>
+            <a href="{{ url('dashboard') }}">E-Dumas</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="{{ url('dashboard') }}">ED</a>
           </div>
 
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="{{ Request::is('home') ? 'active' : '' }}">
-              <a class="nav-link active" href="{{ url('home') }}"><i class="fas fa-fire"></i> 
+            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+              <a class="nav-link active" href="{{ url('dashboard') }}"><i class="fas fa-fire"></i> 
                 <span>Dashbaord</span></a>
             </li>
-            <li class="menu-header">Profil</li>
+            
+            <li class="menu-header">Pages</li>
             <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Profil</span></a>
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-bullhorn"></i> <span>Pengaduan</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="layout-default.html">Admin</a></li>
+                <li class=""><a class="nav-link" href="layout-default.html">Pengaduan Masuk</a></li>
+                <li><a class="nav-link" href="layout-transparent.html">Pengaduan Proses</a></li>
+                <li><a class="nav-link" href="layout-top-navigation.html">Pengaduan Selesai</a></li>
+                <li><a class="nav-link" href="layout-top-navigation.html">Pengaduan Tolak</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Users</span></a>
+              <ul class="dropdown-menu">
+                <li class=""><a class="nav-link" href="layout-default.html">Petugas</a></li>
+                <li><a class="nav-link" href="layout-transparent.html">Masyarakat</a></li>
               </ul>
             </li>
             
-            <li class="menu-header">Pengaduan</li>
-            <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>PENGADUAN</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="layout-default.html">PENGADUAN MASUK</a></li>
-                <li><a class="nav-link" href="layout-transparent.html">PENGADUAN PROSES</a></li>
-                <li><a class="nav-link" href="layout-top-navigation.html">PENGADUAN DITOLAK</a></li>
-                <li><a class="nav-link" href="layout-top-navigation.html">PENGADUAN SELESAI</a></li>
-              </ul>
-            </li>
             <li>
-            <li class="menu-header">Petugas</li>
-            <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>PETUGAS</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="layout-default.html">PETUGAS MASYARAKAT</a></li>
-              </ul>
-            </li>
-            <li class="menu-header">LAPORAN</li>
-            <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>LAPORAN</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="layout-default.html">LAPORAN MASYARAKAT</a></li>
-              </ul>
-            </li>
-              <a class="nav-link" href="blank.html"><i class="far fa-square"></i> 
-                <span>Blank Page</span></a>
+              <a class="nav-link" href="blank.html"><i class="fas fa-book"></i> 
+                <span>Laporan Pengaduan</span></a>
             </li>
 
             {{-- <li class="dropdown active">
