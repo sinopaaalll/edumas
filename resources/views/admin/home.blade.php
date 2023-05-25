@@ -12,10 +12,10 @@
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                <h4>Total Admin</h4>
+                <h4>PETUGAS</h4>
                 </div>
                 <div class="card-body">
-                10
+               
                 </div>
             </div>
             </div>
@@ -27,10 +27,10 @@
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                <h4>News</h4>
+                <h4>SEMUA PENGADUAN</h4>
                 </div>
                 <div class="card-body">
-                42
+               
                 </div>
             </div>
             </div>
@@ -42,10 +42,10 @@
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                <h4>Reports</h4>
+                <h4>PENGADUAN DIPROSES</h4>
                 </div>
                 <div class="card-body">
-                1,201
+              
                 </div>
             </div>
             </div>
@@ -57,10 +57,10 @@
             </div>
             <div class="card-wrap">
                 <div class="card-header">
-                <h4>Online Users</h4>
+                <h4>PENGADUAN SELESAI</h4>
                 </div>
                 <div class="card-body">
-                47
+               
                 </div>
             </div>
             </div>
