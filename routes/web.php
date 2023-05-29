@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MasyarakatController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -27,3 +28,4 @@ Route::get('/', function () {
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('users', PetugasController::class);
+Route::resource('masyarakats', MasyarakatController::class);
