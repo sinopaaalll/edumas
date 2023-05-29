@@ -25,11 +25,11 @@
               </ul>
             </li>
 
-            <li class="dropdown ">
+            <li class="dropdown {{ Request::is(['users*','masyarakats*']) ? 'active' : '' }}">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>Users</span></a>
               <ul class="dropdown-menu">
-                <li class=" "><a class="nav-link" href="{{ route('users.index') }}">Petugas</a></li>
-                <li><a class="nav-link" href="layout-transparent.html">Masyarakat</a></li>
+                <li class="{{ Request::is('users*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('users.index') }}">Petugas</a></li>
+                <li class="{{ Request::is('masyarakats*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('masyarakats.index') }}">Masyarakat</a></li>
               </ul>
             </li>
             
