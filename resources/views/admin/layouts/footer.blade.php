@@ -1,5 +1,5 @@
 <div class="footer-left">
-    Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">{{ $penulis }}</a>
+    Hak Cipta &copy; 2023. MSIB Batch 4 Fullstack Web Depelover. <div class="bullet"></div> Dibuat dan dikembangkang oleh <a href="#">{{ $penulis }}</a>
 </div>
 
 <div class="footer-right">

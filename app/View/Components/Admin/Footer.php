@@ -21,7 +21,7 @@ class Footer extends Component
      */
     public function render(): View|Closure|string
     {
-        $penulis = 'Naufal Rizqullah';
+        $penulis = 'Kelompok 3';
         return view('admin.layouts.footer', compact('penulis'));
     }
 }
