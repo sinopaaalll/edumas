@@ -15,13 +15,11 @@
             </li>
             
             <li class="menu-header">Pages</li>
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('kategoris*') ? 'active' : '' }}">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-bullhorn"></i> <span>Pengaduan</span></a>
               <ul class="dropdown-menu">
-                <li class=""><a class="nav-link" href="layout-default.html">Pengaduan Masuk</a></li>
-                <li><a class="nav-link" href="layout-transparent.html">Pengaduan Proses</a></li>
-                <li><a class="nav-link" href="layout-top-navigation.html">Pengaduan Selesai</a></li>
-                <li><a class="nav-link" href="layout-top-navigation.html">Pengaduan Tolak</a></li>
+                <li class=""><a class="nav-link" href="layout-default.html">Data Pengaduan</a></li>
+                <li class="{{ Request::is('kategoris*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('kategoris.index') }}">Kategori Pengaduan</a></li>
               </ul>
             </li>
 
