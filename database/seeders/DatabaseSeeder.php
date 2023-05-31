@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Pengaduan;
 use App\Models\Masyarakat;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(5)->create();
 
         // Masyarakat::factory(5)->create();
+
+        Pengaduan::factory(15)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
