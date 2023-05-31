@@ -22,9 +22,7 @@ Route::get('/', function () {
     return view('landingpage.index');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('admin.dashboard');
-// });
+Route::get('login',[AuthContoller::class, 'login'])->name('login');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
