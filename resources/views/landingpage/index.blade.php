@@ -48,7 +48,7 @@
               <li class="nav-item"><a class="nav-link" href="#tata-cara">Tara Cata</a></li>
             </ul>
             <form class="d-flex py-3 py-lg-0">
-              <a href="{{ route('dashboard') }}" class="btn btn-link text-1000 fw-medium order-1 order-lg-0" >Sign in</a>
+              <a href="{{ route('login') }}" class="btn btn-link text-1000 fw-medium order-1 order-lg-0" >Sign in</a>
               <a  href="#" class="btn btn-outline-danger rounded-pill order-0" >Sign Up</a>
             </form>
           </div>
