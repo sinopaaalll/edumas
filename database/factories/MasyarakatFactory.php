@@ -17,11 +17,11 @@ class MasyarakatFactory extends Factory
     public function definition(): array
     {
         return [
-            'nik' => fake()->nik(),
-            'telp' => fake()->phoneNumber(),
-            'jk' => fake()->randomElement(['L','P']),
-            'alamat' => fake()->address(),
-            'user_id' => fake()->unique()->randomElement(['1','2','3','4','5']),
+            // 'nik' => fake()->nik(),
+            // 'telp' => fake()->phoneNumber(),
+            // 'jk' => fake()->randomElement(['L','P']),
+            // 'alamat' => fake()->address(),
+            // 'user_id' => fake()->unique()->randomElement(['1','2','3','4','5']),
 
         ];
     }

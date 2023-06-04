@@ -48,6 +48,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
     public function image()
     {
         if ($this->image) {
@@ -66,5 +67,10 @@ class User extends Authenticatable
     public function pengaduan(): HasMany
     {
         return $this->hasMany(Pengaduan::class);
+    }
+
+    public function tanggapan(): HasMany
+    {
+        return $this->hasMany(Tanggapan::class);
     }
 }

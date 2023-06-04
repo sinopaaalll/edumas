@@ -49,7 +49,7 @@
                                                     @method('DELETE')
                                                     <a href="{{ route('masyarakats.show', $data->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
                                                     <a href="{{ route('masyarakats.edit', $data->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                                                    <button type="submit" onclick="confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
+                                                    <button type="submit" onclick="return confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
                                                 </form>
                                             </td>
                                         </tr>

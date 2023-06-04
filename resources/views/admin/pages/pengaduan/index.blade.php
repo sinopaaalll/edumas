@@ -48,9 +48,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Tanggal</th>
-                                        <th>Pengadu</th>
-                                        <th>Lokasi</th>
+                                        <th>Tanggal Pengaduan</th>
+                                        <th>Nama Pengadu</th>
                                         <th>Kategori</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -62,39 +61,47 @@
                                             <th>{{ $loop->iteration }}</th>
                                             <td>{{ $pengaduan->tgl }}</td>
                                             <td>{{ $pengaduan->user->name }}</td>
-                                            <td>{{ $pengaduan->lokasi }}</td>
                                             <td>{{ $pengaduan->kategori->name }}</td>
                                             <td>
                                                 @switch($pengaduan->status)
                                                     @case('masuk')
-                                                        @php $color = 'primary' @endphp
+                                                        @php 
+                                                            $color = 'primary';
+                                                            $status = 'Belum diproses';
+                                                        @endphp
                                                         @break
                                                     @case('proses')
-                                                        @php $color = 'warning' @endphp
+                                                        @php
+                                                            $color = 'warning';
+                                                            $status = 'Sedang diproses';
+                                                        @endphp
                                                         @break
                                                     @case('selesai')
-                                                        @php $color = 'success' @endphp
+                                                        @php 
+                                                            $color = 'success';
+                                                            $status = 'Pengaduan selesai'; 
+                                                        @endphp
                                                         @break
                                                     @case('ditolak')
-                                                        @php $color = 'danger' @endphp
+                                                        @php 
+                                                            $color = 'danger' ;
+                                                            $status = 'Pengaduan ditolak'
+                                                        @endphp
                                                         @break
                                                 @endswitch
                                                 <span class="badge badge-{{ $color }}">
-                                                    {{ $pengaduan->status }}
+                                                    {{ $status }}
                                                 </span>
                                             </td>
                                             <td>
-                                                @switch($pengaduan->status)
-                                                    @case('masuk')
-                                                        <a href="{{ route('pengaduans.edit', $pengaduan->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-pen"></span> Tanggapi</a>
-                                                        @break
-                                                    @case('proses')
-                                                        <a href="{{ route('pengaduans.edit', $pengaduan->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit Tanggapan</a>
-                                                        <a href="{{ route('pengaduans.edit', $pengaduan->id) }}" class="btn btn-sm btn-success"><span class="fa fa-check"></span> Selesai</a>
-                                                        @break
-                                                    @default
-                                                    <small>No Action</small>
-                                                @endswitch
+                                                <form action="{{ route('pengaduans.destroy', $pengaduan->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{ route('pengaduans.show', $pengaduan->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
+                                                    <button class="btn btn-sm btn-danger" type="submit">
+                                                        <span class="fa fa-trash"></span> Del
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
