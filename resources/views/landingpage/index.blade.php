@@ -1,162 +1,256 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>SoftLand Bootstrap Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
 
+    <!-- Favicons -->
+    <link href="{{ asset('img/favicon.png') }}" rel="icon" />
+    <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>E-Dumas | Landing Page</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,700|Roboto:300,400,700&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- Bootstrap CSS File -->
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-    <link rel="manifest" href="assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
-    <meta name="theme-color" content="#ffffff">
+    <!-- assets/vendor CSS Files -->
+    <link href="{{ asset('assets/vendor/icofont/icofont.min.css') }}" rel="stylesheet" />
+    <link
+      href="{{ asset('assets/vendor/line-awesome/css/line-awesome.min.css') }}"
+      rel="stylesheet"
+    />
+    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet" />
+    <link
+      href="{{ asset('assets/vendor/owlcarousel/assets/owl.carousel.min.css') }}"
+      rel="stylesheet"
+    />
 
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
 
-    <!-- ===============================================-->
-    <!--    Stylesheets-->
-    <!-- ===============================================-->
-    <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" />
-
+    <!-- =======================================================
+    Template Name: SoftLand
+    Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com/
+  ======================================================= -->
   </head>
 
-
   <body>
-
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/icons/logo.png" alt="" width="30" /><span class="text-1000 fs-1 ms-2 fw-medium">E-<span class="fw-bold">Dumas</span></span></a>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
-              <li class="nav-item"><a class="nav-link active active" aria-current="page" href="{{ url('/') }}">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#tata-cara">Tara Cata</a></li>
-            </ul>
-            <form class="d-flex py-3 py-lg-0">
-              <a href="{{ route('login') }}" class="btn btn-link text-1000 fw-medium order-1 order-lg-0" >Sign in</a>
-              <a  href="#" class="btn btn-outline-danger rounded-pill order-0" >Sign Up</a>
-            </form>
+    <div class="site-wrap">
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icofont-close js-menu-toggle"></span>
           </div>
         </div>
-      </nav>
+        <div class="site-mobile-menu-body"></div>
+      </div>
 
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="pb-6">
-
-        <div class="container">
-          <div class="row flex-center">
-            <div class="col-lg-6 col-md-5 order-md-1"><img class="img-fluid" src="assets/img/illustrations/1.png" alt="" /></div>
-            <div class="col-md-7 col-lg-6 mt-5 text-center text-md-start">
-              <h1 class="fw-medium">Layanan Pengaduan Masyarakat Online</h1>
-              <p class="mt-3 mb-4">Sampaikan laporan masalah Anda di sini, kami akan memprosesnya dengan cepat. </p>
-              <a class="btn btn-lg btn-danger hover-top btn-glow" href="#">Laporkan Segera !</a>
-            </div>
-          </div>
-        </div>
-        <!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section id="tata-cara" class="pt-4 pt-md-6">
-
+      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-md-5 col-lg-7 text-lg-center"><img class="img-fluid mb-5 mb-md-0" src="assets/img/illustrations/2.png" alt="" /></div>
-            <div class="col-md-7 col-lg-5 text-center text-md-start">
-              <h2>Bagaimana sih?<br />Cara melakukan pengaduan</h2>\
-              <div class="d-flex">
-                <svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                </svg>
-                <p class="ms-2">Tulis laporan keluhan Anda dengan jelas.</p>
-              </div>
-              <div class="d-flex">
-                <svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                </svg>
-                <p class="ms-2">Tunggu sampai laporan anda di verifikasi.</p>
-              </div>
-              <div class="d-flex">
-                <svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                </svg>
-                <p class="ms-2">Laporan anda sedang dalam tindak lanjut.</p>
-              </div>
-              <div class="d-flex">
-                <svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
-                </svg>
-                <p class="ms-2">Laporan pengaduan telah selesai ditindak.</p>
+            <div class="col-6 col-lg-2">
+              <h1 class="mb-0 site-logo">
+                <a href="{{ url('/') }}" class="mb-0">E-Dumas</a>
+              </h1>
+            </div>
+
+            <div class="col-12 col-md-10 d-none d-lg-block">
+              <nav class="site-navigation position-relative text-right" role="navigation" >
+                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                  <li class="active">
+                    <a href="index.html" class="nav-link">Home</a>
+                  </li>
+                  <li><a href="features.html" class="nav-link">Pengaduan</a></li>
+                  <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+                  <li>
+                    <a href="{{ route('login') }}" class="nav-link btn btn-outline-danger">Log In</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div
+              class="col-6 d-inline-block d-lg-none ml-md-0 py-3"
+              style="position: relative; top: 3px"
+            >
+              <a
+                href="#"
+                class="burger site-menu-toggle js-menu-toggle"
+                data-toggle="collapse"
+                data-target="#main-navbar"
+              >
+                <span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main">
+        <div class="hero-section">
+          <div class="wave">
+            <svg
+              width="100%"
+              height="355px"
+              viewBox="0 0 1920 355"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="Apple-TV"
+                  transform="translate(0.000000, -402.000000)"
+                  fill="#FFFFFF"
+                >
+                  <path
+                    d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z"
+                    id="Path"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-12 hero-text-image">
+                <div class="row">
+                  <div class="col-lg-7 text-center text-lg-left">
+                    <h1 data-aos="fade-right">
+                      Layanan Pengaduan Masyarakat Online
+                    </h1>
+                    <p class="mb-5" data-aos="fade-right" data-aos-delay="100">
+                        Sampaikan laporan masalah anda di sini, kami akan memprosesnya dengan cepat.
+                    </p>
+                    <p
+                      data-aos="fade-right"
+                      data-aos-delay="200"
+                      data-aos-offset="-500"
+                    >
+                      <a href="{{ route('login') }}" class="btn btn-outline-white">Laporkan !</a>
+                    </p>
+                  </div>
+                  <div class="col-lg-5 iphone-wrap">
+                    <img src="{{ asset('assets/img/vektor1.png') }}" alt="Image" class="phone-1" data-aos="fade-right" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
 
 
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="bg-200 pt-3 pb-2">
+        <div class="site-section">
+          <div class="container">
+            <div
+              class="row justify-content-center text-center mb-5"
+              data-aos="fade" >
+              <div class="col-md-6 mb-5">
+                <img src="{{ asset('assets/img/undraw_svg_2.svg') }}" alt="Image" class="img-fluid" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="step">
+                  <span class="number">01</span>
+                  <h3>Tuliskan Laporan</h3>
+                  <p>
+                    Tuliskan laporan Keluhan anda dengan jelas.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="step">
+                  <span class="number">02</span>
+                  <h3>Proses Verifikasi</h3>
+                  <p>
+                    Tunggu sampai laporan anda terverifikasi.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+                <div class="step">
+                  <span class="number">03</span>
+                  <h3>Tindak Lanjut</h3>
+                  <p>
+                    Laporan anda sedang dalam tindak lanjut.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="step">
+                  <span class="number">04</span>
+                  <h3>Selesai</h3>
+                  <p>
+                    Laporan pengaduan telah selesai ditindak.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- .site-section -->
+
+
+      </main>
+      <footer class="footer" role="contentinfo">
         <div class="container">
-          <div class="row">
-            <div class="text-400 text-center">
-              <p>Hak Cipta &copy; 2023. MSIB Batch 4 Fullstack Web Depelover <br>
-                Dibuat dan dikembangkan oleh Kelompok 3</a>
+          <div class="row justify-content-center text-center">
+            <div class="col-md-7">
+              <p class="copyright">
+                Hak Cipta &copy; 2023. MSIB Batch 4 Fullstack Web Developer
               </p>
+              <div class="credits">
+                <!--
+                All the links in the footer should remain intact.
+                You can delete the links only if you purchased the pro version.
+                Licensing information: https://bootstrapmade.com/license/
+                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=SoftLand
+              -->
+                Dibuat dan dikembangkan oleh
+                <a href="#">Kelompok 3</a>
+              </div>
             </div>
           </div>
         </div>
-        <!-- end of .container-->
+      </footer>
+    </div>
+    <!-- .site-wrap -->
 
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery-migrate.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assets/vendor/sticky/sticky.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets/vendor/owlcarousel/owl.carousel.min.js') }}"></script>
 
-    </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
-
-
-
-
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
-    <script src="{{ asset('vendors/@popperjs/popper.min.js') }}"></script>
-    <script src="{{ asset('vendors/bootstrap/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('vendors/is/is.min.js') }}"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="{{ asset('assets/js/theme.js') }}"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- Template Main JS File -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
   </body>
-
 </html>
