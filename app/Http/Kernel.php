@@ -67,5 +67,7 @@ class Kernel extends HttpKernel
         // Middleware untuk akses berdasarkan peran pengguna
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'petugas' => \App\Http\Middleware\PetugasMiddleware::class,
+        'masyarakat' => \App\Http\Middleware\MasyarakatMiddleware::class,
+        'ormasyarakat' => \App\Http\Middleware\OrMasyarakat::class,
     ];
 }

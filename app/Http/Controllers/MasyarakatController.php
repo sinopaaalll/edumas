@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Storage;
 
 class MasyarakatController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['index','show']);
+        $this->middleware('petugas')->only(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      */

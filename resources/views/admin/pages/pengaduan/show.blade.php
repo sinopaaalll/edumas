@@ -106,10 +106,11 @@
                         </div>
                     </div>
                 </div>
-
+                
                 @empty($pengaduan->tanggapan)
-
-                    @include('admin.pages.tanggapan.add')
+                    @if (auth()->user()->role != 'masyarakat')
+                        @include('admin.pages.tanggapan.add')
+                    @endif
                 @else
                     <div class="card">
                         <div class="card-header">
@@ -132,21 +133,23 @@
                                         <tr>
                                             <th>Isi tanggapan</th>
                                             <th>:</th>
-                                            <th>{{ $pengaduan->deskripsi }}</th>
+                                            <th>{{ $pengaduan->tanggapan->deskripsi }}</th>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        @if ($pengaduan->status === 'proses')
-                            <div class="card-footer">
-                                <form action="{{ route('tanggapans.selesai', $pengaduan->id) }}" method="post">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success" onclick="return confirm('Yakin, apakah pengaduan telah selesai')">
-                                        <span class="fa fa-check"></span> Proses Selesai
-                                    </button>
-                                </form>
-                            </div>
+                        @if (auth()->user()->role != 'masyarakat')
+                            @if ($pengaduan->status === 'proses')
+                                <div class="card-footer">
+                                    <form action="{{ route('tanggapans.selesai', $pengaduan->id) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success" onclick="return confirm('Yakin, apakah pengaduan telah selesai')">
+                                            <span class="fa fa-check"></span> Proses Selesai
+                                        </button>
+                                    </form>
+                                </div>
+                            @endif
                         @endif
                     </div>
                 @endempty

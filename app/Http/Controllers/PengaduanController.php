@@ -6,18 +6,32 @@ use App\Models\Kategori;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PengaduanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->only(['destroy']);
+        $this->middleware('masyarakat')->only('create','store');
+        $this->middleware('ormasyarakat')->only(['index','show','destroy']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         if((Request()->status)){
-            $pengaduans = Pengaduan::where('status', Request()->status)->get();
+            $pengaduans = Pengaduan::where('status', Request()->status)->get()->sortDesc();
         }else{
-            $pengaduans = Pengaduan::all();
+            $role = auth()->user()->role;
+            $user = auth()->user()->id;
+
+            if ($role == 'masyarakat') {
+                $pengaduans = Pengaduan::where('user_id', $user)->get()->sortDesc();
+            }else{
+                $pengaduans = Pengaduan::all()->sortDesc();
+            }
         };
 
         return view('admin.pages.pengaduan.index', compact('pengaduans'));
@@ -57,11 +71,11 @@ class PengaduanController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route('pengaduans.create')->with('success', 'Data berhasil disimpan');
+            return redirect()->route('pengaduans.create')->with('success', 'Pengaduan berhasil dikirim');
         } catch (\Throwable $th) {
             // throw $th;
             DB::rollback();
-            return redirect()->route('pengaduans.create')->with('error', 'Data gagal disimpan');
+            return redirect()->route('pengaduans.create')->with('error', 'Pengaduan gagal dikirim');
         }
     }
 
@@ -74,26 +88,16 @@ class PengaduanController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pengaduan $pengaduan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Pengaduan $pengaduan)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Pengaduan $pengaduan)
     {
-        //
+        if($pengaduan->image){
+            Storage::disk('public')->delete($pengaduan->image);
+        }
+
+        $pengaduan->delete();
+        return redirect()->route('pengaduans.index')->with('success', 'Data berhasil dihapus');
+
     }
 }

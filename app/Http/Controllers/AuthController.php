@@ -23,13 +23,14 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            $user = Auth::user();
+            return redirect()->intended(route('dashboard'));
+            // $user = Auth::user();
 
-            if ($user->role === 'admin' || $user->role === 'petugas') {
-                return redirect()->intended(route('dashboard'));
-            } else {
-                return redirect()->intended(route('pengaduans.create'));
-            }
+            // if ($user->role === 'admin' || $user->role === 'petugas') {
+            //     return redirect()->intended(route('dashboard'));
+            // } else {
+            //     return redirect()->intended(route('pengaduans.create'));
+            // }
         }
  
         return back()->withErrors([

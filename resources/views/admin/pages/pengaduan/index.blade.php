@@ -9,34 +9,36 @@
 
         <div class="row">
             <div class="col-md-12">
-
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Filter</h4>
-                        <form action="" method="get">
-                            <small for="">Pilih Status</small>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        {{-- <small>Pilih Status</small> --}}
-                                        <select name="status" class="form-control">
-                                            <option value="" {{ Request()->status == '' ? 'selected' : '' }}>Semua</option>
-                                            <option value="masuk" {{ Request()->status == 'masuk' ? 'selected' : '' }}>Belum diproses</option>
-                                            <option value="proses" {{ Request()->status == 'proses' ? 'selected' : '' }}>Sedang diproses</option>
-                                            <option value="selesai" {{ Request()->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
-                                            <option value="ditolak" {{ Request()->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
-                                        </select>
+                @if (auth()->user()->role != 'masyarakat')
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Filter</h4>
+                            <form action="" method="get">
+                                <small for="">Pilih Status</small>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            {{-- <small>Pilih Status</small> --}}
+                                            <select name="status" class="form-control">
+                                                <option value="" {{ Request()->status == '' ? 'selected' : '' }}>Semua</option>
+                                                <option value="masuk" {{ Request()->status == 'masuk' ? 'selected' : '' }}>Belum diproses</option>
+                                                <option value="proses" {{ Request()->status == 'proses' ? 'selected' : '' }}>Sedang diproses</option>
+                                                <option value="selesai" {{ Request()->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                                                <option value="ditolak" {{ Request()->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="submit" class="btn btn-lg btn-primary">
-                                        <i class="fa fa-filter"></i> Filter
-                                    </button>
-                                </div>
-                            </div>   
-                        </form>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-lg btn-primary">
+                                            <i class="fa fa-filter"></i> Filter
+                                        </button>
+                                    </div>
+                                </div>   
+                            </form>
+                        </div>
                     </div>
-                </div>
+                @endif
+                
                 
                 <div class="card card-primary">
                     <div class="card-header">
@@ -94,13 +96,21 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <form action="{{ route('pengaduans.destroy', $pengaduan->id) }}">
+                                                <form action="{{ route('pengaduans.destroy', $pengaduan->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{ route('pengaduans.show', $pengaduan->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
-                                                    <button class="btn btn-sm btn-danger" type="submit">
-                                                        <span class="fa fa-trash"></span> Del
-                                                    </button>
+                                                    @if (auth()->user()->role != 'petugas')
+                                                        @if ($pengaduan->status == 'masuk' && auth()->user()->role == 'masyarakat')
+                                                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin, data ini akan dihapus?')">
+                                                                <span class="fa fa-trash"></span> Del
+                                                            </button>
+                                                        @elseif(auth()->user()->role == 'admin')
+                                                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin, data ini akan dihapus?')">
+                                                                <span class="fa fa-trash"></span> Del
+                                                            </button> 
+                                                        @endif
+                                                    @endif
                                                 </form>
                                             </td>
                                         </tr>

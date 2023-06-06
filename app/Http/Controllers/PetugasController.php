@@ -10,6 +10,10 @@ use Illuminate\Validation\Rule;
 
 class PetugasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      */
