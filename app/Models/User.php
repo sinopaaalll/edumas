@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -21,6 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'image'
     ];
 
     /**
@@ -42,4 +47,30 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function image()
+    {
+        if ($this->image) {
+            return asset('storage/'.$this->image);
+        }else{
+            return asset('admin/assets/img/user-default.png');
+
+        }
+    }
+
+    public function masyarakat(): HasOne
+    {
+        return $this->hasOne(Masyarakat::class);
+    }
+
+    public function pengaduan(): HasMany
+    {
+        return $this->hasMany(Pengaduan::class);
+    }
+
+    public function tanggapan(): HasMany
+    {
+        return $this->hasMany(Tanggapan::class);
+    }
 }
