@@ -21,9 +21,9 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" name="nama" class="form-control @error('nama') ? is-invalid @enderror" required="" autofocus value="{{ old('nama') }}">
-                                        @error('nama')
+                                        <label>Name*</label>
+                                        <input type="text" name="name" class="form-control @error('name') ? is-invalid @enderror" required="" autofocus value="{{ old('name') }}">
+                                        @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

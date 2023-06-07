@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -32,21 +36,17 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => ['required','unique:kategoris'],
+            'name' => ['required','unique:kategoris','max:45'],
         ]);
 
         DB::beginTransaction();
         try {
-            Kategori::create([
-                'nama' => $request->nama,
-            ]);
-
+            Kategori::create($request->all());
             DB::commit();
             return redirect()->route('kategoris.index')->with('success', 'Data berhasil disimpan');
-            
         } catch (\Throwable $th) {
             //throw $th;
-            DB::rollback();
+            DB::rollBack();
             return redirect()->route('kategoris.index')->with('error', 'Data gagal disimpan');
         }
     }
@@ -73,21 +73,17 @@ class KategoriController extends Controller
     public function update(Request $request, Kategori $kategori)
     {
         $request->validate([
-            'nama' => ['required',Rule::unique('kategoris','nama')->ignore($kategori)]
+            'name' => ['required', Rule::unique('kategoris','name')->ignore($kategori)],
         ]);
 
         DB::beginTransaction();
         try {
-            $kategori->update([
-                'nama' => $request->nama,
-            ]);
-
+            $kategori->update($request->all());
             DB::commit();
             return redirect()->route('kategoris.index')->with('success', 'Data berhasil diupdate');
-            
         } catch (\Throwable $th) {
             //throw $th;
-            DB::rollback();
+            DB::rollBack();
             return redirect()->route('kategoris.index')->with('error', 'Data gagal diupdate');
         }
     }
@@ -99,7 +95,6 @@ class KategoriController extends Controller
     {
         $kategori->delete();
         return redirect()->route('kategoris.index')->with('success', 'Data berhasil dihapus');
-
-
+        
     }
 }

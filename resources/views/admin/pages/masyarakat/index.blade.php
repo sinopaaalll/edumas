@@ -12,11 +12,13 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <h4>Data Masyarakat</h4>
-                        <div class="card-header-action">
-                            <a href="{{ route('masyarakats.create') }}" class="btn btn-primary">
-                               <i class="fa fa-user-plus"></i> Add Masyarakat
-                            </a>
-                        </div>
+                        @if (auth()->user()->role == 'admin')
+                            <div class="card-header-action">
+                                <a href="{{ route('masyarakats.create') }}" class="btn btn-primary">
+                                    <i class="fa fa-user-plus"></i> Add Masyarakat
+                                </a>
+                            </div>
+                        @endif
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -44,13 +46,17 @@
                                                 <img alt="image" src="{{ $data->user->image() }}" class="rounded-circle" width="35">
                                             </td>
                                             <td>
-                                                <form action="{{ route('masyarakats.destroy', $data->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
+                                                @if (auth()->user()->role == 'admin')    
+                                                    <form action="{{ route('masyarakats.destroy', $data->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <a href="{{ route('masyarakats.show', $data->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
+                                                        <a href="{{ route('masyarakats.edit', $data->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
+                                                        <button type="submit" onclick="return confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
+                                                    </form>
+                                                @else
                                                     <a href="{{ route('masyarakats.show', $data->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
-                                                    <a href="{{ route('masyarakats.edit', $data->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                                                    <button type="submit" onclick="confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
-                                                </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

@@ -23,8 +23,10 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Name*</label>
-                                        <input type="text" name="nama" class="form-control @error('nama') ? is-invalid @enderror" required="" autofocus value="{{ $kategori->nama }}">
-                                        @error('nama')
+
+                                        <input type="text" name="name" class="form-control @error('name') ? is-invalid @enderror" required="" autofocus value="{{ $kategori->name }}">
+                                        @error('name')
+
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

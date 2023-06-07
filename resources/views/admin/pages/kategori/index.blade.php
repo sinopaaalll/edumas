@@ -14,7 +14,7 @@
                         <h4>Data Kategori Pengaduan</h4>
                         <div class="card-header-action">
                             <a href="{{ route('kategoris.create') }}" class="btn btn-primary">
-                               <i class="fa fa-plus"></i> Add Kategori
+                               <i class="fa fa-plus-circle"></i> Add Kategori
                             </a>
                         </div>
                     </div>
@@ -32,13 +32,13 @@
                                     @foreach ($kategoris as $kategori)   
                                         <tr>
                                             <th>{{ $loop->iteration }}</th>
-                                            <td>{{ $kategori->nama }}</td>
+                                            <td>{{ $kategori->name }}</td>
                                             <td>
                                                 <form action="{{ route('kategoris.destroy', $kategori->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{ route('kategoris.edit', $kategori->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                                                    <button type="submit" onclick="confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
+                                                    <button type="submit" onclick="return confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
                                                 </form>
                                             </td>
                                         </tr>
