@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        // Data Pengaduan
+        $statusCount = Pengaduan::select('status', DB::raw('COUNT(*) as total'))->groupBy('status')->pluck('total', 'status')->toArray();
+
+        $labelsPie = array_keys($statusCount);
+        $dataPie = array_values($statusCount);
 
         // Count jumlah dari tiap tiap databases
         $count = [
@@ -46,6 +52,6 @@ class DashboardController extends Controller
                 ],
             ],
         ];
-        return view('admin.pages.dashboard', compact('chartData','count'));
+        return view('admin.pages.dashboard', compact('chartData','count','labelsPie','dataPie'));
     }
 }

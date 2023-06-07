@@ -69,9 +69,6 @@
 
   <!-- JS Libraies -->
   <script src="{{ asset('admin/assets/modules/chart.min.js') }}"></script>
-
-  <!-- Page Specific JS File -->
-  <script src="{{ asset('admin/assets/js/page/modules-chartjs.js') }}"></script>
   
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>

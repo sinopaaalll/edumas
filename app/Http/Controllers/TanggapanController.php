@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class TanggapanController extends Controller
 {
-
-    // public function create()
-    // {
-    //     return view('admin.pages.tanggapan.add');
-    // }
-
     public function tanggapan(Request $request)
     {
         $request->validate([
@@ -24,7 +18,6 @@ class TanggapanController extends Controller
 
         DB::beginTransaction();
         try {
-
             Tanggapan::create([
                 'pengaduan_id' => $request->pengaduan_id,
                 'tgl' => date('Y-m-d'),
@@ -49,7 +42,6 @@ class TanggapanController extends Controller
         $pengaduan = Pengaduan::where('id', $id);
 
         try {
-
             $pengaduan->update(['status'=>'selesai']);
 
             DB::commit();

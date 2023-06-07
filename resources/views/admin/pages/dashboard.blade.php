@@ -86,8 +86,6 @@
                 </div>
               </div>
           </div>
-
-            
             
             <div class="row">
                 <div class="col-md-8">
@@ -100,46 +98,97 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Keterangan Pengaduan</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="pieChart" height="350px"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
         @endif
     </section>
     @push('script')
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var chartData = @json($chartData);
+      <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              var chartData = @json($chartData);
 
-            var ctx = document.getElementById('lineChart').getContext('2d');
-            var lineChart = new Chart(ctx, {
-                type: 'line',
-                data: chartData,
-                options: {
-                    legend: {
-                    display: false
-                    },
-                    scales: {
-                        yAxes: [{
-                            gridLines: {
-                                drawBorder: false,
-                                color: '#f2f2f2',
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                stepSize: 1
-                            }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                display: true
-                            },
-                            gridLines: {
-                                display: false
-                            }
-                        }]
-                    },
-                }
-            });
-        });
-      </script>
-      <!-- End Bar CHart -->
+              var ctx = document.getElementById('lineChart').getContext('2d');
+              var lineChart = new Chart(ctx, {
+                  type: 'line',
+                  data: chartData,
+                  options: {
+                      legend: {
+                      display: false
+                      },
+                      scales: {
+                          yAxes: [{
+                              gridLines: {
+                                  drawBorder: false,
+                                  color: '#f2f2f2',
+                              },
+                              ticks: {
+                                  beginAtZero: false,
+                                  stepSize: 1
+                              }
+                          }],
+                          xAxes: [{
+                              ticks: {
+                                  display: true
+                              },
+                              gridLines: {
+                                  display: false
+                              }
+                          }]
+                      },
+                  }
+              });
+
+              var dataPie = {!! json_encode($dataPie) !!};
+              var labelsPie = {!! json_encode($labelsPie) !!};
+              var ctx = document.getElementById("pieChart").getContext("2d");
+              var pieChart = new Chart(ctx, {
+                  type: "pie",
+                  data: {
+                    labels: labelsPie,
+                    datasets: [
+                        {
+                            data: dataPie,
+                            backgroundColor: [
+                              'rgba(255, 99, 132, 0.7)',
+                              'rgba(54, 162, 235, 0.7)',
+                              'rgba(255, 206, 86, 0.7)',
+                              'rgba(75, 192, 192, 0.7)',
+                              'rgba(153, 102, 255, 0.7)',
+                              'rgba(255, 159, 64, 0.7)',
+                              'rgba(255, 99, 132, 0.7)'
+                          ],
+                          borderColor: [
+                              'rgba(255, 99, 132, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)',
+                              'rgba(255, 99, 132, 1)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      legend: {
+                          position: "bottom",
+                      },
+                  },
+              });
+              
+          });
+        </script>
+        <!-- End Bar CHart -->
     @endpush
 @endsection
