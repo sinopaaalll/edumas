@@ -15,8 +15,8 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.pages.laporan.index');
+        $pengaduans = Pengaduan::all(); //eloquent
+        return view('admin.pages.laporan.index',compact('pengaduans'));
     }
     public function getlaporan(Request $request)
     {
@@ -25,7 +25,7 @@ class LaporanController extends Controller
 
         $pengaduan = Pengaduan::whereBetween('tgl',[$from, $to])->get();
 
-        return view('admin.pages.laporan.index', ['pengaduan' => $pengaduan, 'from'=> $from, 'to'=>$to]);
+        return view('admin.pages.laporan.index', ['pengaduans' => $pengaduan, 'from'=> $from, 'to'=>$to]);
     }
 
 
@@ -50,7 +50,7 @@ class LaporanController extends Controller
      */
     public function show(string $id)
     {
-        $pengaduan = Pengaduan::findOrFail($id)->get();
+        $pengaduan = Pengaduan::find($id);
         return view('admin.pages.laporan.show', compact('pengaduan'));
     }
 

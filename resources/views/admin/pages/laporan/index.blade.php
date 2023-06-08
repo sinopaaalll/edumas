@@ -32,7 +32,6 @@
                         Data Berdasarkan Tanggal
                     </div>
                     <div class="card-body">
-                        @if ($pengaduan ?? '')
                         <table class="table">
                             <thead>
                                 <tr>
@@ -44,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pengaduan as $pengaduan)
+                                @foreach ($pengaduans as $pengaduan)
                                 <tr>
                                 <th>{{ $loop->iteration }}</th>
                                 <td>{{ $pengaduan->tgl }}</td>
@@ -85,12 +84,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        @else
-                        <div class="text-center">
-                            Tidak ada data
-                        </div>
-                        @endif
-                        
                     </div>
                 </div>
             </div>    
