@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TanggapanController;
 use App\Http\Controllers\MasyarakatController;
+use App\Http\Controllers\LaporanController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -40,7 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('masyarakats', MasyarakatController::class);
     Route::resource('kategoris', KategoriController::class);
     Route::resource('pengaduans', PengaduanController::class);
+    Route::resource('laporan', LaporanController::class);
     Route::post('tanggapans', [TanggapanController::class, 'tanggapan'])->name('tanggapans');
     Route::post('tanggapans/{pengaduan_id}', [TanggapanController::class, 'tanggapanSelesai'])->name('tanggapans.selesai');
-
+    Route::get('getlaporan', [LaporanController::class, 'getlaporan'])->name('laporan.getlaporan');
 });

@@ -18,7 +18,7 @@ class KategoriFactory extends Factory
     {
         return [
 
-            'nama'=> fake()->word()
+            'name'=> fake()->word()
         ];
     }
 }
