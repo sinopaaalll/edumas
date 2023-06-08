@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class TanggapanController extends Controller
         try {
             Tanggapan::create([
                 'pengaduan_id' => $request->pengaduan_id,
-                'tgl' => date('Y-m-d'),
+                'tgl' => Carbon::now(),
                 'deskripsi' => $request->deskripsi,
                 'user_id' => $request->user_id,
             ]);
@@ -41,6 +42,7 @@ class TanggapanController extends Controller
     {
         $pengaduan = Pengaduan::where('id', $id);
 
+        DB::beginTransaction();
         try {
             $pengaduan->update(['status'=>'selesai']);
 

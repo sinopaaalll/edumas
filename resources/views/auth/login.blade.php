@@ -69,7 +69,7 @@
               </div>
               <div class="mt-5 text-muted text-center">
                 Don't have an account?
-                <a href="#">Register</a>
+                <a href="{{ route('register') }}">Register</a>
               </div>
               <div class="simple-footer">Hak Cipta &copy; 2023. MSIB Fullstack Web Depelover <br/> 
                 Dibaut dan dikembangkan oleh <a href="#"> Kelompok 3.</a>
