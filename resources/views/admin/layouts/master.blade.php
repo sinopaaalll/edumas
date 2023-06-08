@@ -69,14 +69,15 @@
 
   <!-- JS Libraies -->
   <script src="{{ asset('admin/assets/modules/chart.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/modules/sweetalert/sweetalert.min.js') }}"></script>
+
   
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
   @stack('script')
-
-  
+  @stack('alert')
 
 </body>
 </html>

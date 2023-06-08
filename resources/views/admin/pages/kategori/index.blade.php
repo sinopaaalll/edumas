@@ -5,7 +5,8 @@
             <h1>Kategori Pengaduan</h1>
         </div>
 
-        <x-Admin.Alert/>
+        {{-- <x-Admin.Alert/> --}}
+        <x-sweetAlert/>
 
         <div class="row">
             <div class="col-md-12">
