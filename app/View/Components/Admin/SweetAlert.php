@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Admin;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class sweetAlert extends Component
+class SweetAlert extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class sweetAlert extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.sweet-alert');
+        return view('components.admin.sweet-alert');
     }
 }

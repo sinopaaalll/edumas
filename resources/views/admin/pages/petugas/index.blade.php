@@ -5,7 +5,7 @@
             <h1>Petugas</h1>
         </div>
 
-        <x-Admin.Alert/>
+        {{-- <x-Admin.Alert/> --}}
 
         <div class="row">
             <div class="col-md-12">
@@ -42,11 +42,11 @@
                                                 <img alt="image" src="{{ $user->image() }}" class="rounded-circle" width="35">
                                             </td>
                                             <td>
-                                                <form action="{{ route('users.destroy', $user->id) }}" method="post">
+                                                <form action="" method="post" id="formDelete">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                                                    <button type="submit" onclick="return confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
+                                                    <button data-action="{{ route('users.destroy', $user->id) }}" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -67,4 +67,7 @@
             } );
         </script>
     @endpush
+
+    <x-Admin.SweetAlert/>
+
 @endsection

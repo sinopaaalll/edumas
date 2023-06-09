@@ -77,6 +77,7 @@
   <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
   @stack('script')
+  
   @stack('alert')
 
 </body>

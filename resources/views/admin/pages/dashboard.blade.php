@@ -191,4 +191,6 @@
         </script>
         <!-- End Bar CHart -->
     @endpush
+
+    <x-Admin.SweetAlert/>
 @endsection
