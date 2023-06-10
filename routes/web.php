@@ -45,4 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::post('tanggapans', [TanggapanController::class, 'tanggapan'])->name('tanggapans');
     Route::post('tanggapans/{pengaduan_id}', [TanggapanController::class, 'tanggapanSelesai'])->name('tanggapans.selesai');
     Route::get('getlaporan', [LaporanController::class, 'getlaporan'])->name('laporan.getlaporan');
+    Route::get('cetaklaporan', [LaporanController::class, 'cetaklaporan']);
+    Route::get('laporanExcel', [LaporanController::class, 'laporanExcel']);
 });

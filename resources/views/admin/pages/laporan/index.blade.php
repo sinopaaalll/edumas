@@ -31,12 +31,18 @@
                     <div class="card-header">
                         Data Berdasarkan Tanggal
                     </div>
+                    <div> 
+                        &nbsp; 
+                       <a href="{{ url('cetaklaporan') }}" class="btn btn-danger">Export PDF</a>
+                       <a href="{{ url('laporanExcel') }}" class="btn btn-danger">Export Excel</a>
+                    </div>
                     <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Tanggal</th>
+                                    <th>Nama Pengaduan</th>
                                     <th>Isi laporan</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -47,6 +53,7 @@
                                 <tr>
                                 <th>{{ $loop->iteration }}</th>
                                 <td>{{ $pengaduan->tgl }}</td>
+                                <td>{{ $pengaduan->user->name }}</td>
                                 <td> {{ $pengaduan->deskripsi }}</td>
                                 <td>
                                                 @switch($pengaduan->status)

@@ -7,6 +7,9 @@ use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use PDF;
+use App\Exports\PengaduanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LaporanController extends Controller
 {
@@ -76,5 +79,16 @@ class LaporanController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function cetaklaporan()
+    {
+        $pengaduan = Pengaduan::all(); //eloquent
+
+        $pdf = PDF::loadView('admin.pages.laporan.cetak', ['pengaduan'=> $pengaduan]);
+        return $pdf->download('laporan_pengaduan_'.date('d-m-Y').'.pdf');
+    }
+    public function laporanExcel() 
+    {
+        return Excel::download(new PengaduanExport, 'laporan_pengaduan_'.date('d-m-Y').'.xlsx');
     }
 }
