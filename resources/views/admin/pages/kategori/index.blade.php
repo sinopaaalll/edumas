@@ -5,8 +5,6 @@
             <h1>Kategori Pengaduan</h1>
         </div>
 
-        <x-Admin.Alert/>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary">
@@ -34,12 +32,12 @@
                                             <th>{{ $loop->iteration }}</th>
                                             <td>{{ $kategori->name }}</td>
                                             <td>
-                                                <form action="{{ route('kategoris.destroy', $kategori->id) }}" method="post">
+                                                <form action="" method="post" id="formDelete">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{ route('kategoris.edit', $kategori->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                                                    <button type="submit" onclick="return confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
-                                                </form>
+                                                    <button data-action="{{ route('kategoris.destroy', $kategori->id) }}" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
+                                                  </form> 
                                             </td>
                                         </tr>
                                     @endforeach
@@ -56,7 +54,10 @@
         <script>
             $(document).ready( function () {
                 $('#table-1').DataTable();
-            } );
+            });
         </script>
     @endpush
+
+    <x-Admin.SweetAlert />
+
 @endsection

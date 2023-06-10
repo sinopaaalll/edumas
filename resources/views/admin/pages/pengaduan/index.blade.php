@@ -5,7 +5,7 @@
             <h1>Pengaduan</h1>
         </div>
 
-        <x-Admin.Alert/>
+        {{-- <x-Admin.Alert/> --}}
 
         <div class="row">
             <div class="col-md-12">
@@ -96,19 +96,15 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <form action="{{ route('pengaduans.destroy', $pengaduan->id) }}" method="post">
+                                                <form action="" method="post" id="formDelete">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a href="{{ route('pengaduans.show', $pengaduan->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
                                                     @if (auth()->user()->role != 'petugas')
                                                         @if ($pengaduan->status == 'masuk' && auth()->user()->role == 'masyarakat')
-                                                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin, data ini akan dihapus?')">
-                                                                <span class="fa fa-trash"></span> Del
-                                                            </button>
+                                                            <button data-action="{{ route('pengaduans.destroy', $pengaduan->id) }}" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
                                                         @elseif(auth()->user()->role == 'admin')
-                                                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin, data ini akan dihapus?')">
-                                                                <span class="fa fa-trash"></span> Del
-                                                            </button> 
+                                                            <button data-action="{{ route('pengaduans.destroy', $pengaduan->id) }}" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
                                                         @endif
                                                     @endif
                                                 </form>
@@ -131,4 +127,6 @@
             } );
         </script>
     @endpush
+
+    <x-Admin.SweetAlert/>
 @endsection

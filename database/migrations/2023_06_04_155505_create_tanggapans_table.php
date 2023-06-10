@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('pengaduan_id')->constrained('pengaduans')->onUpdate('cascade')->onDelete('cascade');
             $table->date('tgl')->useCurrent();
             $table->text('deskripsi');
-            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }

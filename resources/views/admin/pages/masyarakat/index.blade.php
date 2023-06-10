@@ -5,7 +5,7 @@
             <h1>Masyarakat</h1>
         </div>
 
-        <x-Admin.Alert/>
+        {{-- <x-Admin.Alert/> --}}
 
         <div class="row">
             <div class="col-md-12">
@@ -47,12 +47,12 @@
                                             </td>
                                             <td>
                                                 @if (auth()->user()->role == 'admin')    
-                                                    <form action="{{ route('masyarakats.destroy', $data->id) }}" method="post">
+                                                <form action="" method="post" id="formDelete">
                                                         @csrf
                                                         @method('DELETE')
                                                         <a href="{{ route('masyarakats.show', $data->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
                                                         <a href="{{ route('masyarakats.edit', $data->id) }}" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span> Edit</a>
-                                                        <button type="submit" onclick="return confirm('Yakin, data tersebut akan dihapus?')" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> Del</button>
+                                                        <button data-action="{{ route('masyarakats.destroy', $data->id) }}" class="btn btn-sm btn-danger btnDelete"><i class="fas fa-trash"></i> Hapus</button>
                                                     </form>
                                                 @else
                                                     <a href="{{ route('masyarakats.show', $data->id) }}" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> View</a>
@@ -76,4 +76,6 @@
             } );
         </script>
     @endpush
+
+    <x-Admin.SweetAlert/>
 @endsection

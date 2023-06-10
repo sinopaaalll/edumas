@@ -23,15 +23,6 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
-<!-- Start GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-94034622-3');
-</script>
 <!-- /END GA --></head>
 
 <body>
@@ -75,14 +66,19 @@
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('admin/assets/js/page/index.js') }}"></script>
+
+  <!-- JS Libraies -->
+  <script src="{{ asset('admin/assets/modules/chart.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/modules/sweetalert/sweetalert.min.js') }}"></script>
+
   
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
   @stack('script')
-
   
+  @stack('alert')
 
 </body>
 </html>
