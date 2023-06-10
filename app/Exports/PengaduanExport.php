@@ -3,23 +3,37 @@
 namespace App\Exports;
 
 use App\Models\Pengaduan;
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
-use Illuminate\Support\Facades\DB;
-//use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class PengaduanExport implements FromCollection, WithHeadings
+class PengaduanExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        $pengaduan = Pengaduan::all(); //eloquent
-        return Pengaduan::select("tgl","deskripsi","status")->get();
+        $data = Pengaduan::all();
+
+        // Mengubah format data sesuai kebutuhan
+        $formattedData = $data->map(function ($item) {
+            return [
+                'tgl' => $item->tgl,
+                'name' => $item->user->name,
+                'isi' => $item->deskripsi,
+                'lokasi' => $item->lokasi,
+                'kategori' => $item->kategori->name,
+                'status' => $item->status,
+            ];
+        });
+
+        return $formattedData;
     }
+
     public function headings(): array
     {
-        return ["tgl","deskripsi", "status"];
+        return ["Tanggal","Nama Pengadu", "Isi Laporan", "Lokasi", "Kategori", "Status Pengaduan"];
     }
+    
 }

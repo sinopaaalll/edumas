@@ -45,7 +45,7 @@
                 </ul>
               </li>
               
-              <li>
+              <li class="{{ Request::is('laporan*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('laporan.index') }}"><i class="fas fa-book"></i> 
                   <span>Laporan Pengaduan</span></a>
               </li>
