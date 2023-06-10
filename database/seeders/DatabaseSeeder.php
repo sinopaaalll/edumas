@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'masyarakat'
         ]);
 
+        //Masyarakat::factory(5)->create();
         Masyarakat::factory()->create([
             'nik' => '3214012612020001',
             'telp' => '081646964211',

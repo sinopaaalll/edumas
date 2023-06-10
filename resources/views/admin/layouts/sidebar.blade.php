@@ -46,7 +46,7 @@
               </li>
               
               <li>
-                <a class="nav-link" href="#"><i class="fas fa-book"></i> 
+                <a class="nav-link" href="{{ route('laporan.index') }}"><i class="fas fa-book"></i> 
                   <span>Laporan Pengaduan</span></a>
               </li>
               @endif
