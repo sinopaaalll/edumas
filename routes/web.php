@@ -9,7 +9,6 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TanggapanController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\LaporanController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------

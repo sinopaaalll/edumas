@@ -44,15 +44,15 @@ class DatabaseSeeder extends Seeder
 
         //Masyarakat::factory(5)->create();
         Masyarakat::factory()->create([
-            'nik' => '3214012612020001',
+            'nik' => '3214012612020006',
             'telp' => '081646964211',
             'jk' => 'L',
             'alamat' => 'Bandung',
             'user_id' => 3
         ]);
 
-        // Kategori::factory()->create([
-        //     'name' => 'Manufaktur'
-        // ]);
+        Kategori::factory()->create([
+            'name' => 'Manufaktur'
+        ]);
     }
 }

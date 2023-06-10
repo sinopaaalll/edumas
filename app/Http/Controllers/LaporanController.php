@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use PDF;
 use App\Exports\PengaduanExport;
+use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
+use PDF;
 class LaporanController extends Controller
 {
     /**
@@ -84,7 +83,7 @@ class LaporanController extends Controller
     {
         $pengaduan = Pengaduan::all(); //eloquent
 
-        $pdf = PDF::loadView('admin.pages.laporan.cetak', ['pengaduan'=> $pengaduan]);
+        $pdf = PDF::loadView('admin.pages.laporan.cetak', ['pengaduan' => $pengaduan]);
         return $pdf->download('laporan_pengaduan_'.date('d-m-Y').'.pdf');
     }
     public function laporanExcel() 
