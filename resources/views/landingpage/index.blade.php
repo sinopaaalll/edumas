@@ -8,8 +8,8 @@
     <meta content="" name="description" />
 
     <!-- Favicons -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon" />
-    <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
+    <link href="{{ asset('admin/assets/img/edumas.png') }}" rel="icon" />
+    <link href="{{ asset('admin/assets/img/edumas.png') }}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link
