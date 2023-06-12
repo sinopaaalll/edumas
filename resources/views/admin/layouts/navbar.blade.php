@@ -6,22 +6,33 @@
           </ul>
         </form>
         <ul class="navbar-nav navbar-right">
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="{{ auth()->user()->image() }}" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div></a>
-            <div class="dropdown-menu dropdown-menu-right">
-              {{-- <div class="dropdown-title">Logged in 5 min ago</div> --}}
-              <a href="features-profile.html" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
-              </a>
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-key"></i> Ubah Password
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
-            </div>
-          </li>
+            @if (auth()->user()->role === 'masyarakat')
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                  <img alt="image" src="{{ auth()->user()->image() }}" class="rounded-circle mr-1" style="width: 40px; height:40px">
+                  <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                
+                  <a href="{{ route('profile') }}" class="dropdown-item has-icon">
+                    <i class="far fa-user"></i> Profile
+                  </a>
+                  <div class="dropdown-divider"></div>
+                    <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
+                      <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                  </div>
+              </li>
+            @else
+              <li class="nav-link nav-link-lg nav-link-user"">
+                <img alt="image" src="{{ auth()->user()->image() }}" class="rounded-circle mr-1" style="width: 50px; height:50px">
+                <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
+              </li>
+              <li>
+                <a href="{{ route('logout') }}" class="btn btn-danger">
+                  Logout <i class="fas fa-arrow-right"></i>
+                </a>
+              </li>
+            @endif
         </ul>
       </nav>

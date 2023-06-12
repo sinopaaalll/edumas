@@ -37,6 +37,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     // Route yang memerlukan otentikasi (login) sebelum mengaksesnya
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('profile', [AuthController::class, 'profile'])->name('profile')->middleware('masyarakat');
+    Route::post('profile', [AuthController::class, 'update'])->name('profile.update')->middleware('masyarakat');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', PetugasController::class);
     Route::resource('masyarakats', MasyarakatController::class);
