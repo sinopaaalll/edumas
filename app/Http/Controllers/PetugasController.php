@@ -141,12 +141,22 @@ class PetugasController extends Controller
     {
         $user = User::findOrFail($id);
 
-        if($user->image){
-            Storage::disk('public')->delete($user->image);
-        }
-        $user->delete();
+        DB::beginTransaction();
+        try {
+            $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'Data berhasil dihapus');
+            DB::commit();
+            if($user->image){
+                Storage::disk('public')->delete($user->image);
+            }
+    
+            return redirect()->route('users.index')->with('success', 'Data berhasil dihapus');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->route('users.index')->with('error', 'Data gagal dihapus');
+        }
+
+        
 
 
     }

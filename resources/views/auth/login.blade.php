@@ -78,7 +78,7 @@
                 <a href="{{ route('register') }}">Register</a>
               </div>
               <div class="simple-footer">Hak Cipta &copy; 2023. MSIB Fullstack Web Depelover <br/> 
-                Dibaut dan dikembangkan oleh <a href="#"> Kelompok 3.</a>
+                Dibuat dan dikembangkan oleh <a href="#"> Kelompok 3.</a>
             </div>
             </div>
           </div>
