@@ -169,12 +169,19 @@ class MasyarakatController extends Controller
     {
         $masyarakat = Masyarakat::findOrFail($id);
 
-        if($masyarakat->user->image){
-            Storage::disk('public')->delete($masyarakat->user->image);
+        DB::beginTransaction();
+        try {
+            $masyarakat->user->delete();
+            
+            DB::commit();
+            if($masyarakat->user->image){
+                Storage::disk('public')->delete($masyarakat->user->image);
+            }
+            return redirect()->route('masyarakats.index')->with('success', 'Data berhasil dihapus');
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
+            return redirect()->route('masyarakats.index')->with('error', 'Data gagal dihapus');
         }
-
-        $masyarakat->user->delete();
-
-        return redirect()->route('masyarakats.index')->with('success', 'Data berhasil dihapus');
     }
 }

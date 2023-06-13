@@ -25,7 +25,7 @@
               </li>
             @else
               <li class="nav-link nav-link-lg nav-link-user"">
-                <img alt="image" src="{{ auth()->user()->image() }}" class="rounded-circle mr-1" style="width: 50px; height:50px">
+                <img alt="image" src="{{ auth()->user()->image() }}" class="rounded-circle mr-1" style="width: 35px; height:35px">
                 <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
               </li>
               <li>
