@@ -33,6 +33,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/', [LandingPageController::class,'index'])->name('home');
     Route::get('/pengaduan', [LandingPageController::class,'pengaduan'])->name('pengaduan');
     Route::get('/team', [LandingPageController::class,'team'])->name('team');
+    Route::get('/contact', [LandingPageController::class,'contact'])->name('contact');
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('register', [AuthController::class, 'register'])->name('register');

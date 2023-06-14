@@ -26,4 +26,9 @@ class LandingPageController extends Controller
         $data = User::whereIn('role', ['admin', 'petugas'])->get();
         return view('landingpage.team', compact('data'));
     }
+
+    public function contact()
+    {
+        return view('landingpage.contact');
+    }
 }

@@ -78,6 +78,8 @@
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('assets/vendor/owlcarousel/owl.carousel.min.js') }}"></script>
 
+    @stack('script')
+
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
   </body>
