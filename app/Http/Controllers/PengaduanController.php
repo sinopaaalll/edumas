@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Kategori;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
@@ -12,7 +13,6 @@ class PengaduanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->only(['destroy']);
         $this->middleware('masyarakat')->only('create','store');
         $this->middleware('ormasyarakat')->only(['index','show','destroy']);
     }
@@ -62,7 +62,7 @@ class PengaduanController extends Controller
         try {
             Pengaduan::create([
                 'user_id' => $request->user_id,
-                'tgl' => date('Y-m-d'),
+                'tgl' => Carbon::now(),
                 'kategori_id' => $request->kategori,
                 'deskripsi' => $request->deskripsi,
                 'lokasi' => $request->lokasi,

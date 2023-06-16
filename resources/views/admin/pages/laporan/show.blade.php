@@ -5,7 +5,7 @@
             <h1>Laporan Pengaduan</h1>
         </div>
 
-        <x-Admin.Alert/>
+        {{-- <x-Admin.Alert/> --}}
 
         <div class="row">
             <div class="col-md-12">
@@ -106,6 +106,39 @@
                         </div>
                     </div>
                 </div>
+
+                @empty($pengaduan->tanggapan)
+                @else
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Tanggapan</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>Tanggal Ditanggapi</th>
+                                            <th>:</th>
+                                            <th>{{ date('d M Y', strtotime($pengaduan->tanggapan->tgl)) }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Ditanggapi oleh</th>
+                                            <th>:</th>
+                                            <th>{{ $pengaduan->tanggapan->user->name }}</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Isi tanggapan</th>
+                                            <th>:</th>
+                                            <th>{{ $pengaduan->tanggapan->deskripsi }}</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endempty
+
             </div>                
         </div>
     </section>

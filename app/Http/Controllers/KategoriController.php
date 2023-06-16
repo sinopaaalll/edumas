@@ -93,8 +93,16 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        $kategori->delete();
-        return redirect()->route('kategoris.index')->with('success', 'Data berhasil dihapus');
+        DB::beginTransaction();
+        try {
+            $kategori->delete();
+            DB::commit();
+            return redirect()->route('kategoris.index')->with('success', 'Data berhasil dihapus');
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollback();
+            return redirect()->route('kategoris.index')->with('error', 'Data gagal dihapus');
+        }
         
     }
 }
