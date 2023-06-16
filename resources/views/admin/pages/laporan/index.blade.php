@@ -5,7 +5,7 @@
             <h1>Laporan pengaduan</h1>
         </div> 
         <div class="row">
-            <div class="col-lg-4 col-12">
+            <div class="col-lg-12 col-12">
                     <div class="card">
                         <div class="card-header">
                             Cari Berdasarkan Tanggal
@@ -21,12 +21,12 @@
                                         <input type="text" name="to" class="form-control" placeholder="Tanggal Akhir" onfocusin="(this.type='date')" 
                                         onfocusout="(this.type='text')">    
                                     </div>
-                                        <button type="submit" class="btn btn-lg btn-purple" style="width: 100%;">Cari Laporan</button> 
+                                        <button type="submit" class="btn btn-lg btn-purple">Cari Laporan</button> 
                             </form>
                         </div>
                     </div>
             </div>
-            <div class="col-lg-8 col-12">
+            <div class="col-lg-12 col-12">
                 <div class="card">
                     <div class="card-header">
                         Data Berdasarkan Tanggal

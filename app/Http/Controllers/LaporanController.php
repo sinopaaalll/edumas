@@ -7,7 +7,7 @@ use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\PengaduanExport;
 use Maatwebsite\Excel\Facades\Excel;
 
