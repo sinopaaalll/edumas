@@ -11,7 +11,7 @@ class KategoriController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        // $this->middleware('admin');
     }
     /**
      * Display a listing of the resource.
@@ -104,5 +104,32 @@ class KategoriController extends Controller
             return redirect()->route('kategoris.index')->with('error', 'Data gagal dihapus');
         }
         
+    }
+
+    public function APIKategori(){
+        $data = Kategori::all();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Kategori Pengaduan',
+            'data' => $data,
+        ]);
+    }
+
+    public function APIKategoriDetail(string $id){
+        $data = Kategori::find($id);
+
+        if(!empty($data)){
+            return response()->json([
+                'success' => true,
+                'message' => 'Data Kategori Pengaduan',
+                'data' => $data,
+            ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => 'Data Kategori Pengaduan tidak ditemukan',
+            ]);
+        }
     }
 }
