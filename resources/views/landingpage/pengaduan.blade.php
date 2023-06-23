@@ -32,8 +32,7 @@
         @foreach ($data as $item) 
             <div class="col-md-4">
                 <div class="post-entry">
-                    <a href="blog-single.html" class="d-block mb-4">
-                        <img src="{{ $item->image() }}" alt="Image" class="img-fluid">
+                        <img src="{{ $item->image() }}" alt="Image" class="img-fluid" style="width: 350px ; height: 350px ; border-radius:10px">
                     </a>
                     <div class="post-text">
                         <span class="post-meta">{{ date('M d, Y', strtotime($item->tgl)) }} &bullet; By {{ $item->user->name }}</span>  
