@@ -28,35 +28,61 @@
     <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            @foreach($data as $item)
             <div class="col-lg-4 mb-4 mb-lg-0 mt-5" data-aos="fade">
               <div class="card">
                 <div class="card-body mx-auto">
-                    <img src="{{ $item->image() }}" alt="Image" class="img-fluid" style="width:300px; height:400px; border-radius:10px">
-                    <h5 class="text-center mt-4">{{ $item->name }}</h5>
-                    @switch($item->name)
-                        @case('Naufal Rizqullah')
-                            <p class="text-center">Project Manager</p>
-                            @break
-                        @case('Freany Mellyn Usmany')
-                            <p class="text-center">Database Administrator</p>
-                            @break
-                        @case('Achmad Maulana')
-                            <p class="text-center">Back-end Developer</p>
-                            @break
-                        @case('Marullah S.')
-                            <p class="text-center">UI/UX Designer</p>
-                            @break
-                        @case('M. Ikhsan Nugraha')
-                            <p class="text-center">Front-end Developer</p>
-                            @break
-                        @default
-                            
-                    @endswitch
+                    <img src="{{ url('assets/img/naufal.jpg') }}" alt="Image" class="img-fluid" style="width:300px; height:400px; border-radius:10px">
+                    <h5 class="text-center mt-4"></h5>
+                            <p class="text-center">Naufal Rizqullah</p>
+                            <p class="text-center">Ketua </p>
+                            <p class="text-center">STT. Wastukancana Purwakarta</p>
                 </div>
               </div>
             </div>
-            @endforeach
+            <div class="col-lg-4 mb-4 mb-lg-0 mt-5" data-aos="fade">
+              <div class="card">
+                <div class="card-body mx-auto">
+                    <img src="{{ url('assets/img/marul.jpeg') }}" alt="Image" class="img-fluid" style="width:300px; height:400px; border-radius:10px">
+                    <h5 class="text-center mt-4"></h5>
+                            <p class="text-center">Marullah S</p>
+                            <p class="text-center">UI UX</p>
+                            <p class="text-center">Universitas Bina Sarana Informatika</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0 mt-5" data-aos="fade">
+              <div class="card">
+                <div class="card-body mx-auto">
+                    <img src="{{ url('assets/img/ikhsan.jpg') }}" alt="Image" class="img-fluid" style="width:300px; height:400px; border-radius:10px">
+                    <h5 class="text-center mt-4"></h5>
+                            <p class="text-center">Muhammad Ikhsan Nugraha</p>
+                            <p class="text-center">Front End</p>
+                            <p class="text-center">Universitas Amikom Purwokerto</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0 mt-5" data-aos="fade">
+              <div class="card">
+                <div class="card-body mx-auto">
+                    <img src="{{ url('assets/img/freany.jpeg') }}" alt="Image" class="img-fluid" style="width:300px; height:400px; border-radius:10px">
+                    <h5 class="text-center mt-4"></h5>
+                            <p class="text-center">Freany Mellyn Usmany</p>
+                            <p class="text-center">Database</p>
+                            <p class="text-center">Universitas Kristen Duta Wacana</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0 mt-5" data-aos="fade">
+              <div class="card">
+                <div class="card-body mx-auto">
+                    <img src="{{ url('assets/img/achmad.jpeg') }}" alt="Image" class="img-fluid" style="width:300px; height:400px; border-radius:10px">
+                    <h5 class="text-center mt-4"></h5>
+                            <p class="text-center">Achmad Maulana</p>
+                            <p class="text-center">Back End</p>
+                            <p class="text-center">Universitas Bina Sarana Informatika</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
